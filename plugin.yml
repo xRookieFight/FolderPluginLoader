@@ -1,0 +1,7 @@
+name: FolderPluginLoader
+version: 1.0.0
+aquarelay: 1.0.0
+author: xRookieFight
+website: https://www.aquarelay.dev
+description: "Load folder plugins"
+main: xRookieFight\FolderPluginLoader\Main
