@@ -55,7 +55,7 @@ readonly class FolderPluginLoader implements PluginLoaderInterface {
 		$plugin = new $main();
 		$plugin->setDescription($description);
 		$plugin->setServer($this->server);
-		$plugin->setDataFolder($this->dataPath . $description->getName());
+		$plugin->setDataFolder($this->dataPath . 'data' . DIRECTORY_SEPERATOR . $description->getName());
 		$plugin->setResourceFolder($path . DIRECTORY_SEPARATOR . 'resources');
 		$plugin->onLoad();
 
@@ -85,4 +85,5 @@ readonly class FolderPluginLoader implements PluginLoaderInterface {
 			}
 		}
 	}
+
 }
