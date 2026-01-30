@@ -9,6 +9,8 @@ class Main extends Plugin {
 	public function onEnable(): void
 	{
 		$server = $this->getServer();
-		$server->getPluginManager()->registerLoader(new FolderPluginLoader($server, $server->getDataPath()));
+		$pluginsPath = $server->getDataPath() . 'plugins' . DIRECTORY_SEPARATOR;
+		$server->getPluginManager()->registerLoader(new FolderPluginLoader($server, $pluginsPath));
+		$server->getPluginManager()->loadPlugins();
 	}
 }

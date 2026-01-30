@@ -18,7 +18,7 @@ readonly class FolderPluginLoader implements PluginLoaderInterface {
 
 	public function canLoad(string $path) : bool
 	{
-		return is_dir($path) && file_exists($path . '/plugin.yml');
+	   return is_dir($path) && is_file($path . '/plugin.yml');
 	}
 
 	public function load(string $path) : ?Plugin
@@ -55,7 +55,8 @@ readonly class FolderPluginLoader implements PluginLoaderInterface {
 		$plugin = new $main();
 		$plugin->setDescription($description);
 		$plugin->setServer($this->server);
-		$plugin->setDataFolder($this->dataPath . DIRECTORY_SEPARATOR . $description->getName());
+		$plugin->setDataFolder($this->dataPath . $description->getName());
+		$plugin->setResourceFolder($path . DIRECTORY_SEPARATOR . 'resources');
 		$plugin->onLoad();
 
 		return $plugin;
